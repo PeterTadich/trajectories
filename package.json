@@ -1,0 +1,19 @@
+{
+  "name": "trajectories",
+  "version": "1.0.0",
+  "description": "trajectories - time varying motion",
+  "main": "ttvm.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PeterTadich/trajectories.git"
+  },
+  "author": "Peter Tadich",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PeterTadich/trajectories/issues"
+  },
+  "homepage": "https://github.com/PeterTadich/trajectories#readme"
+}
