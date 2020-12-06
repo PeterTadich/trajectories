@@ -1,6 +1,15 @@
 # trajectories
 Trajectories - time varying motion
 
+## Dependencies
+
+There are 2 dependencies 'matrix-computations' and 'lu-decomposition'.
+
+```bash
+https://github.com/PeterTadich/matrix-computations
+https://github.com/PeterTadich/lu-decomposition
+```
+
 ## Installation
 
 ### Node.js
