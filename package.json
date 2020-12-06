@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/PeterTadich/trajectories/issues"
   },
-  "homepage": "https://github.com/PeterTadich/trajectories#readme"
+  "homepage": "https://github.com/PeterTadich/trajectories#readme",
+  "dependencies": {
+    "lu-decomposition": "git+https://github.com/PeterTadich/lu-decomposition.git",
+    "matrix-computations": "git+https://github.com/PeterTadich/matrix-computations.git"
+  }
 }
