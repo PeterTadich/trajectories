@@ -2,6 +2,9 @@
 
 //ECMAScript module
 
+import * as hlao from 'matrix-computations';
+import * as ludcmp from 'lu-decomposition';
+
 //'Time and Motion' (quintic polynomial) page 43 from 'Robotics, Vision and Control'.
 function tpoly(s0,sf,period,samples){
     var T = period;
@@ -31,7 +34,7 @@ function tpoly(s0,sf,period,samples){
     A.unshift(dummyRow);
 
     //solve the inverse of 'A'
-    var Ainverse = matrixInverseLU(A,m);
+    var Ainverse = ludcmp.matrixInverseLU(A,m);
     
     //clean-up, remove dummy values
     //   - remove the dummy row
@@ -42,7 +45,7 @@ function tpoly(s0,sf,period,samples){
     }
     
     //calc. the coefficient vector
-    var coeff = matrix_multiplication(Ainverse,S);
+    var coeff = hlao.matrix_multiplication(Ainverse,S);
     //console.log('coefficient vector: ' + coeff);
     
     //create the displacement, velocity, acceleration data
