@@ -100,7 +100,29 @@ function lspb(qi,qf,tf,nsteps){
     return data;
 }
 
+//gradient - numerical derivative. ref: Numerical recipes in C, page 187.
+//IMPORTANT: ill defined at k == 0 and k == f.length - 1
+//Solution: pad with zero at k == 0 if position x0 is 0 etc.
+//f[
+//  [x0,y0],
+//  [x1,y1],
+//  ...,
+//  [xn,yn]
+//];
+function gradient(f){
+    var df;
+    var data = [];
+    for(var k=0;k<f.length;k=k+1){
+        if(k == 0) df = (f[k+1][1] - f[k][1])/(f[k+1][0] - f[k][0]);                   // k = 0
+        else if(k == (f.length - 1)) df = (f[k][1] - f[k-1][1])/(f[k][0] - f[k-1][0]); // k = f.length - 1
+        else df = (f[k+1][1] - f[k-1][1])/(f[k+1][0] - f[k-1][0]);                     // 0 < k < f.length - 1
+        data.push([f[k][0],df]);
+    }
+    return data;
+}
+
 export {
     tpoly,
-    lspb
+    lspb,
+    gradient
 };
