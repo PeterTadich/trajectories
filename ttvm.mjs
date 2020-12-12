@@ -104,13 +104,13 @@ function lspb(qi,qf,tf,nsteps){
 //multi-joint trajectory
 var qz = [0,0,0,0,0,0];
 var qr = [0,Math.PI/2.0,-Math.PI/2.0,0,0,0];
-var jm = jtraj(qz,qr,1.0,10); //joint motion
+var jm = ttvm.jtraj(qz,qr,1.0,10); //joint motion
 console.log(jm);
 */
 function jtraj(q0,q1,period,samples){
     var traj = [];
     for(var i=0;i<q0.length;i=i+1){
-        traj[i] = ttvm.tpoly(q0[i],q1[i],period,samples);
+        traj[i] = tpoly(q0[i],q1[i],period,samples);
     }
     return(traj);
 }
