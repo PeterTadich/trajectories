@@ -100,6 +100,21 @@ function lspb(qi,qf,tf,nsteps){
     return data;
 }
 
+/*
+//multi-joint trajectory
+var qz = [0,0,0,0,0,0];
+var qr = [0,Math.PI/2.0,-Math.PI/2.0,0,0,0];
+var jm = jtraj(qz,qr,1.0,10); //joint motion
+console.log(jm);
+*/
+function jtraj(q0,q1,period,samples){
+    var traj = [];
+    for(var i=0;i<q0.length;i=i+1){
+        traj[i] = ttvm.tpoly(q0[i],q1[i],period,samples);
+    }
+    return(traj);
+}
+
 //gradient - numerical derivative. ref: Numerical recipes in C, page 187.
 //IMPORTANT: ill defined at k == 0 and k == f.length - 1
 //Solution: pad with zero at k == 0 if position x0 is 0 etc.
@@ -124,5 +139,6 @@ function gradient(f){
 export {
     tpoly,
     lspb,
+    jtraj,
     gradient
 };
