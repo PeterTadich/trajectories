@@ -55,9 +55,9 @@ function tpoly(s0,sf,period,samples){
     var T = [];
     for(var i=0;i<=samples;i=i+1){
         T[i] = i*(period/samples);
-        S[i] = vector_dot(coeff,[[Math.pow(T[i],5)], [Math.pow(T[i],4)], [Math.pow(T[i],3)], [Math.pow(T[i],2)], [T[i]], [1.0]]); //displacement
-        Sd[i] = vector_dot(coeff,[[5.0*Math.pow(T[i],4)], [4.0*Math.pow(T[i],3)], [3.0*Math.pow(T[i],2)], [2.0*T[i]], [1.0], [0.0]]); //velocity
-        Sdd[i] = vector_dot(coeff,[[20.0*Math.pow(T[i],3)], [12.0*Math.pow(T[i],2)], [6.0*T[i]], [2.0], [0.0], [0.0]]); //acceleration
+        S[i] = hlao.vector_dot(coeff,[[Math.pow(T[i],5)], [Math.pow(T[i],4)], [Math.pow(T[i],3)], [Math.pow(T[i],2)], [T[i]], [1.0]]); //displacement
+        Sd[i] = hlao.vector_dot(coeff,[[5.0*Math.pow(T[i],4)], [4.0*Math.pow(T[i],3)], [3.0*Math.pow(T[i],2)], [2.0*T[i]], [1.0], [0.0]]); //velocity
+        Sdd[i] = hlao.vector_dot(coeff,[[20.0*Math.pow(T[i],3)], [12.0*Math.pow(T[i],2)], [6.0*T[i]], [2.0], [0.0], [0.0]]); //acceleration
     }
     
     return {time:T, S:S, Sdot:Sd, Sdotdot:Sdd};
