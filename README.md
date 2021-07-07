@@ -106,30 +106,6 @@ console.log("'sdd' - second derivative:");
 console.log(sdd);
 ```
 
-Quintic polynomial trajectory - tpoly().
-
-```js
-/*
-%MATLAB
-t = 0.0:0.02:1.0; % 0.0 to 1.0 (51 samples)
-[s,sd,sdd] = tpoly(0, 1, t);
-*/
-import * as ttvm from 'trajectories';
-
-var period = 1.0; //final time (Hence T is from 0.0 to 1.0)
-var samples = 50.0; //number of steps
-var traj = ttvm.tpoly(0.0,1.0,period,samples);
-var T = traj.time; var s = traj.S; var sd = traj.Sdot; var sdd = traj.Sdotdot;
-console.log("'T' - time:");
-console.log(T);
-console.log("'s' - linear 1D pose:");
-console.log(s);
-console.log("'sd' - first derivative:");
-console.log(sd);
-console.log("'sdd' - second derivative:");
-console.log(sdd);
-```
-
 Single/Multi-dimensional axis of motion - jtraj().
 
 ```js
